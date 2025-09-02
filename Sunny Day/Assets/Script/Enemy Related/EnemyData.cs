@@ -19,11 +19,13 @@ public class EnemyData
     public bool isSomethingAhead;
 
     [Header("Shoot Data")]
-    public GameObject projectilePrefab;
+    public GameObject bulletPrefab;
+    public Transform shootPoint;
+    public GameObject[] projectiles;
     public int numberOfBullets;
 
     public float projectileSpeed;
-    public float timeBetweenShoot;
+    public float shootCooldown;
     public float timeBetweenBurst;
     [HideInInspector] public float shootTimer;
 

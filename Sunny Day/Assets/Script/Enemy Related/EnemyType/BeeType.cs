@@ -5,9 +5,10 @@ public class BeeType : MonoBehaviour
 {
     private StateMachine _stateMachine;
     private Rigidbody2D rb;
-    [SerializeField] private GameObject projectile;
     public EnemyData Data;
-    
+   
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +19,7 @@ public class BeeType : MonoBehaviour
         Data.transform = GetComponent<Transform>();
         Data.spawnPoint = transform.position;
         Data.target = GameObject.FindGameObjectWithTag("Player");
-        Data.projectilePrefab = projectile;
+        
 
         _stateMachine.AddState(new FlyingState(Data, _stateMachine));
         _stateMachine.AddState(new PFlyingState(Data, _stateMachine));

@@ -4,7 +4,8 @@ public class FShootState : IState
 {
     private EnemyData data;
     StateMachine currentState;
-    GameObject[] bullet;
+    private int bulletsRemainingInBurst;
+    private float burstTimer;
 
     public FShootState(EnemyData shootData, StateMachine state)
     {
@@ -21,11 +22,9 @@ public class FShootState : IState
     {
         data.shootTimer -= Time.deltaTime;
         if (data.shootTimer <= 0f)
-        {
-            data.shootTimer = data.timeBetweenShoot;
-           
+        {           
+            data.shootTimer = data.shootCooldown;           
         }
-
     }
 
     public void FixedUpdate()
@@ -36,19 +35,9 @@ public class FShootState : IState
     public void Exit()
     {
         
-    }
-    public GameObject GetBullet()
-    {
-        for (int i = 0; i < bullet.Length; i++)
-        {
-            if (!bullet[i].activeInHierarchy)
-            {
-                return bullet[i];
-            }
-        }
-        return null; // no free bullet
-    }
-
-    
-
+    }  
 }
+
+
+
+
