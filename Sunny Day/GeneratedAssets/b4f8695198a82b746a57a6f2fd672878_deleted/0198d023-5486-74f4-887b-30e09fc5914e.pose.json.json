@@ -1,0 +1,11 @@
+{
+    "asset": "b4f8695198a82b746a57a6f2fd672878",
+    "fileName": "0198d023-5486-74f4-887b-30e09fc5914e.pose.json",
+    "prompt": "2d run, jump, slash",
+    "negativePrompt": "",
+    "model": "a9c27ca4-3ec9-43e8-96cd-ee891aba64c5",
+    "modelName": "Text to Motion",
+    "customSeed": 1753075857,
+    "w3CTraceId": "13714eefd4987ed0b4854e4862cc739d",
+    "isTrimmed": false
+}

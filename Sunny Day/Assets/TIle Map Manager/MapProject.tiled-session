@@ -1,0 +1,75 @@
+{
+    "activeFile": "Tilemap/Map1.tmx",
+    "expandedProjectPaths": [
+        "Tilemap",
+        ".",
+        "Tileset",
+        "Tilemap/Template"
+    ],
+    "fileStates": {
+        "Tilemap/Background.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tilemap/Map1.tmx": {
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 775,
+                "y": 151.5
+            }
+        },
+        "Tilemap/Map2.tmx": {
+            "expandedGroupLayers": [
+                5,
+                9,
+                24,
+                4,
+                3,
+                18,
+                19,
+                22,
+                15
+            ],
+            "expandedObjectLayers": [
+                27,
+                22,
+                26
+            ],
+            "scale": 1.5,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 438,
+                "y": 294.99999999999994
+            }
+        },
+        "Tileset/tileset1.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.objectTemplatePath": "C:/Users/ADMIN/Sunny Day/Assets/TIle Map Manager/Tilemap/Template",
+    "last.objectTypesPath": "C:/Users/ADMIN/Sunny Day/Assets/TIle Map Manager/propertytypes.xml",
+    "last.worldFilePath": "C:/Users/ADMIN/Sunny Day/Assets/TIle Map Manager/Tilemap",
+    "loadedWorlds": [
+        "C:/Users/ADMIN/Sunny Day/Assets/TIle Map Manager/Tilemap/World1.world"
+    ],
+    "openFiles": [
+        "Tilemap/Map1.tmx",
+        "Tilemap/Map2.tmx",
+        "Tileset/tileset1.tsx"
+    ],
+    "project": "MapProject.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "Tileset/tileset1.tsx",
+        "Tilemap/Map2.tmx",
+        "Tilemap/Map1.tmx",
+        "Tilemap/Background.tsx"
+    ],
+    "resizeMap.removeObjects": false,
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.type": 1
+}
