@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Logic Manager
   - Projectile
+  - Obstacles
   layers:
   - Default
   - TransparentFX

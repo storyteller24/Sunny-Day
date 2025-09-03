@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3983932909631879539}
   m_Layer: 8
   m_Name: bee
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,24 +192,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c23cfee564e7ce43b77d6496f2ed6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Data:
-    rb: {fileID: 8261923986190600621}
-    anim: {fileID: 2449800990669660790}
+  data:
+    rb: {fileID: 0}
+    anim: {fileID: 0}
     spawnPoint: {x: 0, y: 0}
-    transform: {fileID: 8069078509209868495}
+    transform: {fileID: 0}
     speed: 2
-    maxDistance: 6
+    maxDistance: 8
     target: {fileID: 0}
-    attackRange: 3
+    attackRange: 6
     isGround: 0
     isSomethingAhead: 0
-    bulletPrefab: {fileID: -2253911629886400664, guid: cc29960ccf99b6e4faa384d221b49e57, type: 3}
+    bulletPrefab: {fileID: 3189412823166988144, guid: e0a2ddfb9f98a544f85140b1f848ed0c, type: 3}
     shootPoint: {fileID: 1655936090965731440}
     projectiles: []
-    numberOfBullets: 3
-    projectileSpeed: 3
-    shootCooldown: 2
-    timeBetweenBurst: 3
+    numberOfBullets: 5
+    projectileSpeed: 5
+    shootCooldown: 3
+    timeBetweenBurst: 0
     shootTimer: 0
 --- !u!1 &8080647820158529312
 GameObject:
@@ -236,7 +236,7 @@ Transform:
   m_GameObject: {fileID: 8080647820158529312}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
