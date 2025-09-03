@@ -1,5 +1,5 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -21,7 +21,7 @@ public class EnemyData
     [Header("Shoot Data")]
     public GameObject bulletPrefab;
     public Transform shootPoint;
-    public GameObject[] projectiles;
+    public List<GameObject> projectiles;
     public int numberOfBullets;
 
     public float projectileSpeed;
