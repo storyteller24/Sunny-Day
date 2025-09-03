@@ -23,7 +23,6 @@ public class SlimeType : MonoBehaviour
         Data.anim = GetComponent<Animator>();
         Data.transform = GetComponent<Transform>();
         Data.target = GameObject.FindGameObjectWithTag("Player");
-        Data.hit = hit;
 
 
         Data.spawnPoint = Data.rb.position;
@@ -40,7 +39,7 @@ public class SlimeType : MonoBehaviour
     void Update()
     {
         hit = Physics2D.Raycast(wallCheck.position, Vector2.right * transform.localScale.x, 5f);
-
+        Data.isSomethingAhead = isWalled();
 
         if (hit.collider != null && hit.collider.CompareTag("Player"))
         {

@@ -18,7 +18,6 @@ public class EProjectileBehavior : MonoBehaviour
         else if (collision.CompareTag("Obstacles"))
         {
             gameObject.SetActive(false); // Deactivate the projectile
-            Debug.Log("Hit an obstacle");
         }
     }
     void OnBecameInvisible()
