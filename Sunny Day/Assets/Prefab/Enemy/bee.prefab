@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c23cfee564e7ce43b77d6496f2ed6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  stats: {fileID: 11400000, guid: 404da17bdc0db804598764d5466c4b14, type: 2}
   data:
     rb: {fileID: 0}
     anim: {fileID: 0}
@@ -203,14 +204,8 @@ MonoBehaviour:
     attackRange: 6
     isGround: 0
     isSomethingAhead: 0
-    bulletPrefab: {fileID: 3189412823166988144, guid: e0a2ddfb9f98a544f85140b1f848ed0c, type: 3}
-    shootPoint: {fileID: 1655936090965731440}
     projectiles: []
-    numberOfBullets: 5
-    projectileSpeed: 5
-    shootCooldown: 3
-    timeBetweenBurst: 0
-    shootTimer: 0
+    shootPoint: {fileID: 1655936090965731440}
 --- !u!1 &8080647820158529312
 GameObject:
   m_ObjectHideFlags: 0

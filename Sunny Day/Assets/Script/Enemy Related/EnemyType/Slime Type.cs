@@ -11,7 +11,9 @@ public class SlimeType : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private RaycastHit2D hit;
 
-    public EnemyData Data;
+    [HideInInspector] public EnemyData Data;
+    [SerializeField] private EnemyStats stats;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,13 +25,11 @@ public class SlimeType : MonoBehaviour
         Data.anim = GetComponent<Animator>();
         Data.transform = GetComponent<Transform>();
         Data.target = GameObject.FindGameObjectWithTag("Player");
-
-
         Data.spawnPoint = Data.rb.position;
 
         _stateMachine = new StateMachine();
-        _stateMachine.AddState(new PatrolState(Data, _stateMachine));
-        _stateMachine.AddState(new ChaseState(Data, _stateMachine));
+        _stateMachine.AddState(new PatrolState(Data, _stateMachine, stats));
+        _stateMachine.AddState(new ChaseState(Data, _stateMachine, stats));
         _stateMachine.ChangeState<PatrolState>();
 
 
@@ -44,21 +44,15 @@ public class SlimeType : MonoBehaviour
         if (hit.collider != null && hit.collider.CompareTag("Player"))
         {
             if (!(_stateMachine.CurrentState is ChaseState))
-            {
                 _stateMachine.ChangeState<ChaseState>();
-
-            }
         }
-        else
+        else if (!(_stateMachine.CurrentState is PatrolState))
         {
-            if (!(_stateMachine.CurrentState is PatrolState))
-            {
-                _stateMachine.ChangeState<PatrolState>();
-
-            }
+            _stateMachine.ChangeState<PatrolState>();
         }
 
 
+        Debug.Log(_stateMachine.CurrentState);
         Debug.DrawRay(wallCheck.position, Vector2.right * transform.localScale.x * 5f, Color.red);
 
 
@@ -70,6 +64,12 @@ public class SlimeType : MonoBehaviour
         _stateMachine.FixedUpdate();
         PhysicAdapt();
     }
+
+    void SelectState()
+    {
+
+    }
+
     void PhysicAdapt()
     {
         if (isGrounded())

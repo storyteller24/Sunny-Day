@@ -3,15 +3,16 @@ using UnityEngine;
 public class FlyingState : IState
 {
     private EnemyData data;
-    float direction;
+    private EnemyStats stats;
     StateMachine currentState;
     private float directionX;
     private float directionY;
     
-    public FlyingState(EnemyData Data, StateMachine State)
+    public FlyingState(EnemyData Data, StateMachine State, EnemyStats stats)
     {
         data = Data;
         currentState = State;
+        this.stats = stats;
     }
     public void Enter()
     {
@@ -36,7 +37,7 @@ public class FlyingState : IState
 
     public void FixedUpdate()
     {
-            Vector2 velocity = new Vector2(directionX * data.speed, directionY * data.speed);
+            Vector2 velocity = new Vector2(directionX * stats.speed, directionY * stats.speed);
             data.rb.linearVelocity = velocity;
         if (directionX != 0)
         {
@@ -48,8 +49,5 @@ public class FlyingState : IState
     {
 
     }
-
-    
-
 
 }

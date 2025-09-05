@@ -4,29 +4,25 @@ using UnityEngine;
 public class BeeType : MonoBehaviour
 {
     private StateMachine _stateMachine;
-    private Rigidbody2D rb;
+    [SerializeField] private EnemyStats stats;
     public EnemyData data;
-   
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+ 
+    void Start()
     {
         _stateMachine = new StateMachine();
-        rb = GetComponent<Rigidbody2D>();
+
         data.rb = GetComponent<Rigidbody2D>();
         data.anim = GetComponent<Animator>();
         data.transform = GetComponent<Transform>();
         data.spawnPoint = transform.position;
         data.target = GameObject.FindGameObjectWithTag("Player");
-        ObjectPool.Instance.InstantiateObject(data.bulletPrefab, data.numberOfBullets, data.projectiles);
+        ObjectPool.Instance.InstantiateObject(stats.projectilePrefab, stats.numberOfBullets, data.projectiles);
 
-    }
-    void Start()
-    {
-        _stateMachine.AddState(new FlyingState(data, _stateMachine));
-        _stateMachine.AddState(new PFlyingState(data, _stateMachine));
-        _stateMachine.AddState(new FShootState(data, _stateMachine));
+
+        _stateMachine.AddState(new FlyingState(data, _stateMachine, stats));
+        _stateMachine.AddState(new PFlyingState(data, _stateMachine, stats));
+        _stateMachine.AddState(new FShootState(data, _stateMachine, stats));
 
         _stateMachine.ChangeState<PFlyingState>();
         
@@ -35,13 +31,8 @@ public class BeeType : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         SelectState();
-
-
         Debug.Log(_stateMachine.CurrentState);
-
-
         _stateMachine.Update();
     }
     void FixedUpdate()
@@ -57,11 +48,11 @@ public class BeeType : MonoBehaviour
             _stateMachine.ChangeState<PFlyingState>();
         }
 
-        if(distance <= data.attackRange)
+        if(distance <= stats.attackRange)
         {
             _stateMachine.ChangeState<FShootState>();
         }
-        else if ( distance <= data.maxDistance)
+        else if ( distance <= stats.maxDistance)
         {
             _stateMachine.ChangeState<FlyingState>();
         }
@@ -74,9 +65,9 @@ public class BeeType : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, data.maxDistance);
+        Gizmos.DrawWireSphere(transform.position, stats.maxDistance);
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, data.attackRange);
+        Gizmos.DrawWireSphere(transform.position, stats.attackRange);
     }
 
    

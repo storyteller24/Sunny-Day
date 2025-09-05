@@ -6,6 +6,8 @@ using UnityEngine;
 public class PFlyingState : IState
 {
     private EnemyData data;
+    private EnemyStats stats;
+
     // Called when the owning graph starts playing
 
     StateMachine currentState;
@@ -13,11 +15,11 @@ public class PFlyingState : IState
     private Vector2 patrolVelocity;    
     private float patrolTimer = 0f;
 
-    public PFlyingState(EnemyData chaseData, StateMachine state)
+    public PFlyingState(EnemyData chaseData, StateMachine state, EnemyStats stats)
     {
         data = chaseData;
         currentState = state;
-       
+        this.stats = stats;
     }
     public void Enter()
     {
@@ -30,10 +32,10 @@ public class PFlyingState : IState
         if (patrolTimer <= 0f)
         {
             patrolTimer = 3f; // reset timer
-            Vector2 randomPoint = GetRandomPoint(data.spawnPoint, data.maxDistance);
+            Vector2 randomPoint = GetRandomPoint(data.spawnPoint, stats.maxDistance);
             direction = (randomPoint - (Vector2)data.transform.position).normalized;
            
-            patrolVelocity = direction * data.speed;
+            patrolVelocity = direction * stats.speed;
         }
     }
 

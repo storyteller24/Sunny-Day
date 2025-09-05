@@ -3,14 +3,15 @@ using UnityEngine;
 public class FShootState : IState
 {
     private EnemyData data;
+    private EnemyStats stats;
     StateMachine currentState;
-    private int bulletsRemainingInBurst;
-    private float burstTimer;
+    private float timer = 3f;
 
-    public FShootState(EnemyData shootData, StateMachine state)
+    public FShootState(EnemyData shootData, StateMachine state, EnemyStats stats)
     {
         data = shootData;
         currentState = state;
+        this.stats = stats;
     }
     public void Enter()
     {
@@ -20,17 +21,17 @@ public class FShootState : IState
 
     public void Update()
     {
-        data.shootTimer -= Time.deltaTime;
+        timer -= Time.deltaTime;
         GameObject bullet = ObjectPool.Instance.GetPooledObject(data.projectiles);
-        if (data.shootTimer <= 0f)
+        if (timer <= 0f)
         {
-            data.shootTimer = data.shootCooldown;
+            timer = stats.shootCooldown;
             if (bullet != null)
             {
                 bullet.transform.position = data.shootPoint.position;
                 bullet.SetActive(true);
                 Vector2 direction = (data.target.transform.position - data.shootPoint.position).normalized;
-                bullet.GetComponent<Rigidbody2D>().linearVelocity = direction * data.projectileSpeed;
+                bullet.GetComponent<Rigidbody2D>().linearVelocity = direction * stats.projectileSpeed;
             }
         }
     }

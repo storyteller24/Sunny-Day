@@ -3,14 +3,16 @@ using UnityEngine;
 public class ChaseState : IState
 {
     private EnemyData data;
+    private EnemyStats stats;
     float direction;
     StateMachine currentState;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public ChaseState(EnemyData chaseData, StateMachine State)
+    public ChaseState(EnemyData chaseData, StateMachine State, EnemyStats stats)
     {
         data = chaseData;
         currentState = State;
+        this.stats = stats;
     }
     public void Enter()
     {
@@ -25,7 +27,7 @@ public class ChaseState : IState
 
     public void FixedUpdate()
     {
-        data.rb.linearVelocity = new Vector2(data.speed * direction, data.rb.linearVelocity.y);      
+        data.rb.linearVelocity = new Vector2(stats.speed * direction, data.rb.linearVelocity.y);      
     }
 
     public void Exit()

@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +21,8 @@ public class PlayerControl : MonoBehaviour
     [Header("Movement Properties")]
     [SerializeField] private float speed = 8f;
     [SerializeField] private float jumpingPower = 16f;
+    [SerializeField] private int maxJumps = 2;
+    private int jumpCount;
 
     [Header("Ground Check")]
     [SerializeField] private Rigidbody2D rb;
@@ -59,8 +60,17 @@ public class PlayerControl : MonoBehaviour
         playerMap.Disable(); // Disable the entire action map
     }
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        jumpCount = maxJumps;
+    }
     private void Update()
     {
+        if (IsGrounded())
+        {
+            jumpCount = maxJumps;
+        }
         Flip();    
     }
 
@@ -142,8 +152,9 @@ public class PlayerControl : MonoBehaviour
     // The rest of the private methods remain the same
     private void OnJump()
     {
-        if (IsGrounded())
+        if (IsGrounded() || (!IsGrounded() && jumpCount >0))
         {
+            jumpCount--;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
         }
         

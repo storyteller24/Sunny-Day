@@ -164,6 +164,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5018790201979222281, guid: 3356b98eee9ac784fa81baecda61c1cf, type: 3}
+      propertyPath: maxJumps
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5018790201979222281, guid: 3356b98eee9ac784fa81baecda61c1cf, type: 3}
       propertyPath: jumpingPower
       value: 20
       objectReference: {fileID: 0}
@@ -197,11 +201,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9203895349854980340, guid: 3356b98eee9ac784fa81baecda61c1cf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.8
+      value: 8.96
       objectReference: {fileID: 0}
     - target: {fileID: 9203895349854980340, guid: 3356b98eee9ac784fa81baecda61c1cf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.64
+      value: -15.57
       objectReference: {fileID: 0}
     - target: {fileID: 9203895349854980340, guid: 3356b98eee9ac784fa81baecda61c1cf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -341,7 +345,7 @@ Transform:
   m_GameObject: {fileID: 151799882}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.8, y: -13.64, z: -5}
+  m_LocalPosition: {x: 8.96, y: -15.57, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -440,7 +444,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.8, y: -13.64, z: -5}
+  m_LocalPosition: {x: 8.96, y: -15.57, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -869,7 +873,7 @@ Transform:
   m_GameObject: {fileID: 2013792252}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.07, y: -0.3, z: 0}
+  m_LocalPosition: {x: 16.19, y: -0.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -954,6 +958,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2482141472868641651, guid: 64140f74bfd661f4ea092f1f22739a7e, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 6092fa54cb1a2d04bb2a5eaa82d42a2c, type: 2}
     - target: {fileID: 2482141472868641651, guid: 64140f74bfd661f4ea092f1f22739a7e, type: 3}
       propertyPath: Data.speed
       value: 2
@@ -1064,6 +1072,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3983932909631879539, guid: d19375280fcebd447aca9a35db39e158, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 404da17bdc0db804598764d5466c4b14, type: 2}
+    - target: {fileID: 3983932909631879539, guid: d19375280fcebd447aca9a35db39e158, type: 3}
       propertyPath: data.speed
       value: 2
       objectReference: {fileID: 0}
@@ -1093,7 +1105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3983932909631879539, guid: d19375280fcebd447aca9a35db39e158, type: 3}
       propertyPath: data.shootCooldown
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3983932909631879539, guid: d19375280fcebd447aca9a35db39e158, type: 3}
       propertyPath: Data.numberOfBullets

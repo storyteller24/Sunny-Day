@@ -6,13 +6,15 @@ public class PatrolState : IState
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private EnemyData data;
+    private EnemyStats stats;
     float direction;
     private StateMachine currentState;
    
-    public PatrolState(EnemyData patrolData, StateMachine state )
+    public PatrolState(EnemyData patrolData, StateMachine state, EnemyStats stats )
     {
         data = patrolData;
         currentState = state;
+        this.stats = stats;
     }
 
     public void Enter()
@@ -28,7 +30,7 @@ public class PatrolState : IState
 
     public void FixedUpdate() 
     {
-        data.rb.linearVelocity = new Vector2(data.speed * direction, data.rb.linearVelocity.y);
+        data.rb.linearVelocity = new Vector2(stats.speed * direction, data.rb.linearVelocity.y);
     }
 
     public void Exit()
@@ -39,7 +41,7 @@ public class PatrolState : IState
     {
         float distance = Vector2.Distance(data.transform.position, data.spawnPoint);
         float directionToSpawn = Mathf.Sign(data.spawnPoint.x - data.transform.position.x);
-        if (distance > data.maxDistance || data.isSomethingAhead)
+        if (distance > stats.maxDistance || data.isSomethingAhead)
         {
             direction = directionToSpawn;
             Vector3 scale = data.transform.localScale;
