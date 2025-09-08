@@ -34,6 +34,7 @@ public class ChaseState : IState
     {
         
     }
+   
     private void Flip()
     {       
         Vector3 scale = data.transform.localScale;

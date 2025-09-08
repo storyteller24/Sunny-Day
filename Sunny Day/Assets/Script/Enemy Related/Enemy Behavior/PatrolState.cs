@@ -37,6 +37,7 @@ public class PatrolState : IState
     {
         
     }
+
     private void Flip()
     {
         float distance = Vector2.Distance(data.transform.position, data.spawnPoint);
@@ -46,8 +47,7 @@ public class PatrolState : IState
             direction = directionToSpawn;
             Vector3 scale = data.transform.localScale;
             scale.x = direction;
-            data.transform.localScale = scale;       
-           
+            data.transform.localScale = scale;                  
         }
     }
     
